@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+
+		table{
+			border-collapse: collapse;
+		}
+		table tr td {
+			font-size: 20px;
+			text-align: center;
+			padding: 10px;
+			border: 1px solid black;
+		}
+
+		table tr td.orange {
+			background-color: orange;
+		}
+
+	</style>
+</head>
+<body>
+<div id="card">
+</div>
+
+
+<script>
+
+let arr = new Array ();
+
+function mass () {
+	for (i=0; i<=29; i++){
+		arr.push(Math.floor(Math.random() * 99))
+	}
+}
+
+mass ()
+
+function table () {
+	card.innerHTML += "<table><tbody id='tb'></tbody></table>";
+	tb.innerHTML += "<tr id='tbtr1'></tr>"
+	tb.innerHTML += "<tr id='tbtr2'></tr>"
+	tb.innerHTML += "<tr id='tbtr3'></tr>"
+	tb.innerHTML += "<tr id='tbtr4'></tr>"
+	tb.innerHTML += "<tr id='tbtr5'></tr>"
+
+
+	for (i=0;i<=5;i++) {
+		if (arr[i] >= 50) {
+			tbtr1.innerHTML += "<td class=\"orange trtd\">" + arr[i] + "</td>";
+		} else {
+			tbtr1.innerHTML += "<td class=\"trtd\">" + arr[i] + "</td>";			
+		}
+	}
+	for (i=6;i<=11;i++) {
+		if (arr[i] >= 50) {
+			tbtr2.innerHTML += "<td class=\"orange trtd\">" + arr[i] + "</td>";
+		} else {
+			tbtr2.innerHTML += "<td class=\"trtd\" >" + arr[i] + "</td>";
+	  }
+	}
+	for (i=12;i<=17;i++) {
+		if (arr[i] >= 50) {
+			tbtr3.innerHTML += "<td class=\"orange trtd\">" + arr[i] + "</td>";
+		} else {
+			tbtr3.innerHTML += "<td class=\"trtd\">" + arr[i] + "</td>";
+	  }
+	}
+	for (i=18;i<=23;i++) {
+		if (arr[i] >= 50) {
+			tbtr4.innerHTML += "<td class=\"orange trtd\">" + arr[i] + "</td>";
+		} else {
+			tbtr4.innerHTML += "<td class=\"trtd\">" + arr[i] + "</td>";
+	  }
+	}
+	for (i=24;i<=29;i++) {
+		if (arr[i] >= 50) {
+			tbtr5.innerHTML += "<td class=\"orange trtd\">" + arr[i] + "</td>";
+		} else {
+			tbtr5.innerHTML += "<td class=\"trtd\">" + arr[i] + "</td>";
+	  }
+	}
+
+}
+
+table ()
+
+function foo() {
+	let numb1 = Math.floor(Math.random() * 30)
+	let numb2 = Math.floor(Math.random() * 99)
+  let trtd = document.querySelectorAll("td.trtd");
+	
+  if (numb2>=50) {
+  	trtd[numb1].innerText = numb2
+  	if (!trtd[numb1].classList.contains("orange")) {trtd[numb1].classList.add("orange")}
+  } else {
+  	trtd[numb1].innerText = numb2
+  	if (trtd[numb1].classList.contains("orange")) {trtd[numb1].classList.remove("orange")}
+  }
+	numb1 = 0	
+	numb2 = 0	
+}
+
+</script>
+
+<br>
+<br>
+<button onclick="foo()">Добавить число</button>
+
+</body>
+</html>
